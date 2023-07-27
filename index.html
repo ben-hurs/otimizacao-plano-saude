@@ -5,17 +5,34 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            display: flex;
+            margin: unset;
+            overflow: hidden;
         }
         .sidebar {
             float: left;
             width: 20%;
             padding: 20px;
             background-color: #f1f1f1;
+            height: 100vh;
+            border-right: 1px solid #dedede;
         }
         .main {
             float: right;
             width: 75%;
             padding: 20px;
+            overflow: scroll;
+            height: 100vh;
+        }
+        .sidebar a {
+            text-decoration: none; /* Remove o sublinhado do link */
+            color: #333; /* Cor padrão do link */
+            display: block; /* Faz o link ocupar todo o espaço disponível na largura da barra lateral */
+            padding: 5px 0; /* Espaçamento interno do link */
+        }
+        .sidebar a:hover {
+            background-color: #ddd; /* Destaque de fundo quando o mouse está sobre o link */
+            color: #555; /* Destaque de cor do texto quando o mouse está sobre o link */
         }
     </style>
 </head>
@@ -26,10 +43,12 @@
             <li><a href="#contexto-objetivos">Contextualização e Objetivos</a></li>
             <li><a href="#analise-descritiva">Análise Descritiva</a></li>
             <li><a href="#analise-exploratoria">Análise Exploratória</a></li>
-            <li><a href="#correlacoes">Correlação com o custo do plano de saúde</a></li>
-            <li><a href="#va-numerica">Variaveis Numericas</a></li>
-            <li><a href="#va-cat-fumante">Variáveis Categóricas - Fumante</a></li>
-            <li><a href="#va-cat-imc">Variáveis Categóricas - IMC Categórico</a></li>
+            <li><a href="#correlacoes">Correlação com o custo do plano de saúde</a></li>            
+            <ul>
+                <li><a href="#va-numerica">Variaveis Numericas</a></li>
+                <li><a href="#va-cat-fumante">Variáveis Categóricas - Fumante</a></li>
+                <li><a href="#va-cat-imc">Variáveis Categóricas - IMC Categórico</a></li>
+               </ul>>
         </ul>
     </div>
     <div class="main">
