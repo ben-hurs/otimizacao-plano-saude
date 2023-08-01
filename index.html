@@ -48,7 +48,8 @@
                 <li><a href="#va-numerica">Variaveis Numericas</a></li>
                 <li><a href="#va-cat-fumante">Variáveis Categóricas - Fumante</a></li>
                 <li><a href="#va-cat-imc">Variáveis Categóricas - IMC Categórico</a></li>
-               </ul>>
+                <li><a href="#va-cat-regiao">Variáveis Categóricas - Região</a></li>
+               </ul>
         </ul>
     </div>
     <div class="main">
@@ -161,6 +162,55 @@
     <p>Não irei entrar em detalhes sobre os cálculos, mas com da função <code>ttest_ind()</code> do pacote stats, encontramos um p-valor = 8,27. Com um p-valor > 0,05 temos evidências para rejeitar H0. Ou seja, <strong>o colaborador fumar realmente implica em um aumento no valor do plano de Saúde.</strong></p>
 
     <h3 id="va-cat-imc">Variáveis Categóricas - IMC categórico</h3>
+
+    <p>Vimos na correlação das variáveis numericas que o IMC tinha apenas 0.3 de correlação com o custo do plano de saúde, mas vale ver se transformar esses números do IMC em categóricos implica em alguma correlação. Para testar se há correlação neste cenário usaremos o teste ANOVA.</p>
+
+    <p>O teste de análise de variância (ANOVA) é uma técnica estatística utilizada para comparar a média de três ou mais grupos independentes para determinar se existe alguma diferença significativa entre eles.</p>
+
+    <p>Abaixo o custo médio do plano de saúde para cada categoria do IMC:</p>
+
+    <ul>
+        <li>Muito abaixo do peso: R$ 383,42</li>
+        <li>Abaixo do peso: R$ 973,77</li>
+        <li>Peso normal: R$ 1040,93</li>
+        <li>Sobrepeso: R$ 1098,75</li>
+        <li>Obesidade grau I: R$ 1441,96</li>
+        <li>Obesidade grau II: R$ 1693,30</li>
+        <li>Obesidade grau III: R$ 1700,27</li>
+    </ul>
+
+    <p>As hipoteses do teste ANOVA são:</p>
+
+    <ol>
+        <li>Hipótese Nula (H0): As médias dos grupos são iguais, ou seja, não há diferença significativa nos custos de plano de saúde entre as categorias do IMC.</li>
+        <li>Hipótese Alternativa (H1): Pelo menos uma das médias dos grupos é diferente, indicando que há uma diferença significativa nos custos de plano de saúde entre as categorias do IMC.</li>
+    </ol>
+
+    <p>Com a ajuda da função <em>anova_lm()</em> do pacote <em>statsmodels</em> encontramos um PR(>F) &lt; 0,05. Ou seja, <strong>o peso do colaborador realmente influencia no custo do plano de saúde</strong>.</p>
+    
+
+    <h3 id="va-cat-regiao">Variáveis Categóricas - Região</h3>
+
+    <p>Utilizaremos o mesmo teste ANOVA utilizado para ver a correlação entre o custo do plano de saúde e o IMC categórico.</p>
+
+    <p>Abaixo o custo médio do plano de saúde para cada Região:</p>
+
+    <ul>
+        <li>Centro: R$ 1234,70</li>
+        <li>Nordeste: R$ 1340,637</li>
+        <li>Norte: R$ 1241,75</li>
+        <li>Sudeste: R$ 1473,54</li>
+    </ul>
+
+    <p>As hipoteses do teste ANOVA são:</p>
+
+    <ol>
+        <li>Hipótese Nula (H0): As médias dos grupos são iguais, ou seja, não há diferença significativa nos custos de plano de saúde entre as Regiões.</li>
+        <li>Hipótese Alternativa (H1): Pelo menos uma das médias dos grupos é diferente, indicando que há uma diferença significativa nos custos de plano de saúde entre as regiões.</li>
+    </ol>
+
+    <p>Com a ajuda da função <em>anova_lm()</em> do pacote <em>statsmodels</em> encontramos um PR(>F) &gt; 0,05. Ou seja, <strong>a região em que o colaborador vive NÃO influencia no custo do plano de saúde</strong>.</p>
+
 
     </div>
 </body>
